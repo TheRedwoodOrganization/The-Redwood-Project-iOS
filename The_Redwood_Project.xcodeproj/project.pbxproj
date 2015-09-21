@@ -22,6 +22,7 @@
 		BE5348731BB00066005EC306 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348721BB00066005EC306 /* Post.m */; };
 		BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348751BB00282005EC306 /* CommentTableViewCell.m */; };
 		BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348781BB002C6005EC306 /* PostTableViewCell.m */; };
+		BE53487C1BB006FB005EC306 /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53487B1BB006FB005EC306 /* PostTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		BE5348751BB00282005EC306 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 		BE5348771BB002C6005EC306 /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
 		BE5348781BB002C6005EC306 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		BE53487A1BB006FB005EC306 /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
+		BE53487B1BB006FB005EC306 /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,8 @@
 			children = (
 				BE5348621BAFFED2005EC306 /* HomePageViewController.h */,
 				BE5348631BAFFED2005EC306 /* HomePageViewController.m */,
+				BE53487A1BB006FB005EC306 /* PostTableViewController.h */,
+				BE53487B1BB006FB005EC306 /* PostTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				BE53486D1BAFFFB2005EC306 /* BlogPoster.m in Sources */,
 				BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */,
 				BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */,
+				BE53487C1BB006FB005EC306 /* PostTableViewController.m in Sources */,
 				BE5348731BB00066005EC306 /* Post.m in Sources */,
 				BE53486A1BAFFF43005EC306 /* User.m in Sources */,
 				BE5348381BAFFD3E005EC306 /* main.m in Sources */,

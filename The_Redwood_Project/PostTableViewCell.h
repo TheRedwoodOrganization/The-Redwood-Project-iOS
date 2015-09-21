@@ -12,4 +12,6 @@
 
 @interface PostTableViewCell : UITableViewCell
 
+- (void) createCells:(Post *)post;
+
 @end
