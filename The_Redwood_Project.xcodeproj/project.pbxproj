@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
-		BE53483E1BAFFD3E005EC306 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483D1BAFFD3E005EC306 /* ViewController.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
 		BE5348431BAFFD3E005EC306 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5348421BAFFD3E005EC306 /* Images.xcassets */; };
 		BE5348461BAFFD3E005EC306 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5348441BAFFD3E005EC306 /* LaunchScreen.xib */; };
 		BE5348521BAFFD3E005EC306 /* The_Redwood_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348511BAFFD3E005EC306 /* The_Redwood_ProjectTests.m */; };
+		BE5348611BAFFDBD005EC306 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348601BAFFDBD005EC306 /* Blog.m */; };
+		BE5348641BAFFED2005EC306 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348631BAFFED2005EC306 /* HomePageViewController.m */; };
+		BE5348671BAFFF2C005EC306 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348661BAFFF2C005EC306 /* Comment.m */; };
+		BE53486A1BAFFF43005EC306 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348691BAFFF43005EC306 /* User.m */; };
+		BE53486D1BAFFFB2005EC306 /* BlogPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53486C1BAFFFB2005EC306 /* BlogPoster.m */; };
+		BE5348701BAFFFE0005EC306 /* Commenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53486F1BAFFFE0005EC306 /* Commenter.m */; };
+		BE5348731BB00066005EC306 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348721BB00066005EC306 /* Post.m */; };
+		BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348751BB00282005EC306 /* CommentTableViewCell.m */; };
+		BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348781BB002C6005EC306 /* PostTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +40,30 @@
 		BE5348371BAFFD3E005EC306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE5348391BAFFD3E005EC306 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE53483A1BAFFD3E005EC306 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BE53483C1BAFFD3E005EC306 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BE53483D1BAFFD3E005EC306 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE5348401BAFFD3E005EC306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE5348421BAFFD3E005EC306 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BE5348451BAFFD3E005EC306 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BE53484B1BAFFD3E005EC306 /* The_Redwood_ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = The_Redwood_ProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348501BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5348511BAFFD3E005EC306 /* The_Redwood_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Redwood_ProjectTests.m; sourceTree = "<group>"; };
+		BE53485F1BAFFDBD005EC306 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
+		BE5348601BAFFDBD005EC306 /* Blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blog.m; sourceTree = "<group>"; };
+		BE5348621BAFFED2005EC306 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		BE5348631BAFFED2005EC306 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		BE5348651BAFFF2C005EC306 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		BE5348661BAFFF2C005EC306 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		BE5348681BAFFF43005EC306 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		BE5348691BAFFF43005EC306 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		BE53486B1BAFFFB2005EC306 /* BlogPoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogPoster.h; sourceTree = "<group>"; };
+		BE53486C1BAFFFB2005EC306 /* BlogPoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPoster.m; sourceTree = "<group>"; };
+		BE53486E1BAFFFE0005EC306 /* Commenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commenter.h; sourceTree = "<group>"; };
+		BE53486F1BAFFFE0005EC306 /* Commenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commenter.m; sourceTree = "<group>"; };
+		BE5348711BB00066005EC306 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		BE5348721BB00066005EC306 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		BE5348741BB00282005EC306 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		BE5348751BB00282005EC306 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		BE5348771BB002C6005EC306 /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		BE5348781BB002C6005EC306 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +105,13 @@
 		BE5348341BAFFD3E005EC306 /* The_Redwood_Project */ = {
 			isa = PBXGroup;
 			children = (
-				BE5348391BAFFD3E005EC306 /* AppDelegate.h */,
-				BE53483A1BAFFD3E005EC306 /* AppDelegate.m */,
-				BE53483C1BAFFD3E005EC306 /* ViewController.h */,
-				BE53483D1BAFFD3E005EC306 /* ViewController.m */,
+				BE53485E1BAFFD88005EC306 /* Controllers */,
+				BE53485D1BAFFD7F005EC306 /* Views */,
+				BE53485C1BAFFD77005EC306 /* Models */,
+				BE53485B1BAFFD6C005EC306 /* App */,
 				BE53483F1BAFFD3E005EC306 /* Main.storyboard */,
-				BE5348421BAFFD3E005EC306 /* Images.xcassets */,
 				BE5348441BAFFD3E005EC306 /* LaunchScreen.xib */,
+				BE5348421BAFFD3E005EC306 /* Images.xcassets */,
 				BE5348351BAFFD3E005EC306 /* Supporting Files */,
 			);
 			path = The_Redwood_Project;
@@ -117,6 +141,54 @@
 				BE5348501BAFFD3E005EC306 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE53485B1BAFFD6C005EC306 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BE5348391BAFFD3E005EC306 /* AppDelegate.h */,
+				BE53483A1BAFFD3E005EC306 /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		BE53485C1BAFFD77005EC306 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE53485F1BAFFDBD005EC306 /* Blog.h */,
+				BE5348601BAFFDBD005EC306 /* Blog.m */,
+				BE5348651BAFFF2C005EC306 /* Comment.h */,
+				BE5348661BAFFF2C005EC306 /* Comment.m */,
+				BE5348681BAFFF43005EC306 /* User.h */,
+				BE5348691BAFFF43005EC306 /* User.m */,
+				BE53486B1BAFFFB2005EC306 /* BlogPoster.h */,
+				BE53486C1BAFFFB2005EC306 /* BlogPoster.m */,
+				BE53486E1BAFFFE0005EC306 /* Commenter.h */,
+				BE53486F1BAFFFE0005EC306 /* Commenter.m */,
+				BE5348711BB00066005EC306 /* Post.h */,
+				BE5348721BB00066005EC306 /* Post.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BE53485D1BAFFD7F005EC306 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BE5348741BB00282005EC306 /* CommentTableViewCell.h */,
+				BE5348751BB00282005EC306 /* CommentTableViewCell.m */,
+				BE5348771BB002C6005EC306 /* PostTableViewCell.h */,
+				BE5348781BB002C6005EC306 /* PostTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BE53485E1BAFFD88005EC306 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE5348621BAFFED2005EC306 /* HomePageViewController.h */,
+				BE5348631BAFFED2005EC306 /* HomePageViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +291,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE53483E1BAFFD3E005EC306 /* ViewController.m in Sources */,
+				BE5348701BAFFFE0005EC306 /* Commenter.m in Sources */,
+				BE5348641BAFFED2005EC306 /* HomePageViewController.m in Sources */,
+				BE53486D1BAFFFB2005EC306 /* BlogPoster.m in Sources */,
+				BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */,
 				BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */,
+				BE5348731BB00066005EC306 /* Post.m in Sources */,
+				BE53486A1BAFFF43005EC306 /* User.m in Sources */,
 				BE5348381BAFFD3E005EC306 /* main.m in Sources */,
+				BE5348671BAFFF2C005EC306 /* Comment.m in Sources */,
+				BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */,
+				BE5348611BAFFDBD005EC306 /* Blog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
