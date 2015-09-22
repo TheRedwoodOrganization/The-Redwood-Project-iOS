@@ -19,6 +19,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Page" id="6na-Ow-GB1">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Rf1-kd-uBW">
+                            <connections>
+                                <action selector="logOut:" destination="vXZ-lx-hvc" id="xOP-Yc-MS0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Log In" id="gB8-IP-ANs">
                             <connections>
                                 <action selector="logIn:" destination="vXZ-lx-hvc" id="iSM-L9-fqA"/>

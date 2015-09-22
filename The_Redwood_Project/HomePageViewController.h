@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "PostTableViewController.h"
+#import "UserLogInViewController.h"
+#import <ParseUI/ParseUI.h>
 
 
-@interface HomePageViewController : UIViewController
+@interface HomePageViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 
 
