@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "Post.h"
 #import "PostTableViewCell.h"
+#import "ParseManager.h"
 
-@interface PostTableViewController : UITableViewController
+@interface PostTableViewController : UITableViewController <parseHasFinished>
 
 @property (strong, nonatomic) Post *thisPost;
 @property (strong, nonatomic) NSMutableArray *postArray;

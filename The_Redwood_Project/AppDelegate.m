@@ -16,6 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"nrAMgoqfu4ANZbCJMgmJZjW4FBEMLxatKnqCxl1M"
+                  clientKey:@"T39TPsxaUvJwbYYHHnRsS3278r04RMKQ1rpsIlGn"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     // Override point for customization after application launch.
     return YES;
 }

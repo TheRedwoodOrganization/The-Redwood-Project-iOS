@@ -29,7 +29,9 @@
 
 -(void)createCells:(Post *)post{
     
-    self.title.text = @"Test";//post.title;
+    self.title.text = post.title;
+    self.doc.text = [NSString stringWithFormat:@"%@", post.doc];
+    
 }
 
 @end

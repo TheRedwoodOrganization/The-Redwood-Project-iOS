@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
+@property (strong, nonatomic) NSString *doc;
+
 
 @property (strong, nonatomic) BlogPoster *blogger;
 @property (strong, nonatomic) NSMutableArray *commentArray;

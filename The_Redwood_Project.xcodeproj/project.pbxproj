@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE5174ED1BB1597400E9DAE6 /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5174EC1BB1597400E9DAE6 /* ParseManager.m */; };
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
@@ -36,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-The_Redwood_Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5174EB1BB1597400E9DAE6 /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
+		BE5174EC1BB1597400E9DAE6 /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		BE5348321BAFFD3E005EC306 /* The_Redwood_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Redwood_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348361BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5348371BAFFD3E005EC306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 		BE5348781BB002C6005EC306 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
 		BE53487A1BB006FB005EC306 /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		BE53487B1BB006FB005EC306 /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
+		FC8E578FEB40063C9F38D04A /* Pods-The_Redwood_Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FAF3FDC979BF388A1B44029 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE5348291BAFFD3D005EC306 = {
 			isa = PBXGroup;
 			children = (
 				BE5348341BAFFD3E005EC306 /* The_Redwood_Project */,
 				BE53484E1BAFFD3E005EC306 /* The_Redwood_ProjectTests */,
 				BE5348331BAFFD3E005EC306 /* Products */,
+				D36ED0C3E1C6607FF386B5A9 /* Pods */,
+				1FAF3FDC979BF388A1B44029 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +132,8 @@
 				BE5348441BAFFD3E005EC306 /* LaunchScreen.xib */,
 				BE5348421BAFFD3E005EC306 /* Images.xcassets */,
 				BE5348351BAFFD3E005EC306 /* Supporting Files */,
+				BE5174EB1BB1597400E9DAE6 /* ParseManager.h */,
+				BE5174EC1BB1597400E9DAE6 /* ParseManager.m */,
 			);
 			path = The_Redwood_Project;
 			sourceTree = "<group>";
@@ -196,6 +214,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		D36ED0C3E1C6607FF386B5A9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */,
+				FC8E578FEB40063C9F38D04A /* Pods-The_Redwood_Project.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE5348551BAFFD3E005EC306 /* Build configuration list for PBXNativeTarget "The_Redwood_Project" */;
 			buildPhases = (
+				6F357233B456AB0C16497911 /* Check Pods Manifest.lock */,
 				BE53482E1BAFFD3D005EC306 /* Sources */,
 				BE53482F1BAFFD3D005EC306 /* Frameworks */,
 				BE5348301BAFFD3D005EC306 /* Resources */,
+				F6514B31F127712C74658F96 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,6 +320,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F357233B456AB0C16497911 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F6514B31F127712C74658F96 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE53482E1BAFFD3D005EC306 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -308,6 +370,7 @@
 				BE5348671BAFFF2C005EC306 /* Comment.m in Sources */,
 				BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */,
 				BE5348611BAFFDBD005EC306 /* Blog.m in Sources */,
+				BE5174ED1BB1597400E9DAE6 /* ParseManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,8 +494,13 @@
 		};
 		BE5348561BAFFD3E005EC306 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = The_Redwood_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,8 +509,13 @@
 		};
 		BE5348571BAFFD3E005EC306 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC8E578FEB40063C9F38D04A /* Pods-The_Redwood_Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = The_Redwood_Project/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +575,7 @@
 				BE5348571BAFFD3E005EC306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE5348581BAFFD3E005EC306 /* Build configuration list for PBXNativeTarget "The_Redwood_ProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +584,7 @@
 				BE53485A1BAFFD3E005EC306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

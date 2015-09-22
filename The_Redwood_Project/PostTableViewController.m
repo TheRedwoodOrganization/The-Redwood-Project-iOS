@@ -11,6 +11,8 @@
 @interface PostTableViewController ()
 
 @property (assign, nonatomic) NSInteger indexNumber;
+@property (assign, nonatomic) BOOL done;
+@property (strong, nonatomic) ParseManager *sessionManager;
 
 @end
 
@@ -19,11 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.sessionManager = [[ParseManager alloc] init];
+    self.sessionManager.delegate = self;
+    [self.sessionManager getAllPosts];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+}
+
+- (void)postArrayIsReady:(NSMutableArray *)postArray{
+    self.postArray = postArray;
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,15 +48,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    //return self.postArray.count;
-    return 1;
+    return [self.sessionManager.foundPostArray count];
+    //return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post" forIndexPath:indexPath];
     Post *post = self.postArray[indexPath.row];
-    post.title = @"Test";
     [cell createCells:post];
     return cell;
 }
