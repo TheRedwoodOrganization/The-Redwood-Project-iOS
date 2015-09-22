@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE5174ED1BB1597400E9DAE6 /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5174EC1BB1597400E9DAE6 /* ParseManager.m */; };
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
@@ -39,8 +38,6 @@
 /* Begin PBXFileReference section */
 		BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-The_Redwood_Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.debug.xcconfig"; sourceTree = "<group>"; };
-		BE5174EB1BB1597400E9DAE6 /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
-		BE5174EC1BB1597400E9DAE6 /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		BE5348321BAFFD3E005EC306 /* The_Redwood_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Redwood_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348361BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5348371BAFFD3E005EC306 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,8 +129,6 @@
 				BE5348441BAFFD3E005EC306 /* LaunchScreen.xib */,
 				BE5348421BAFFD3E005EC306 /* Images.xcassets */,
 				BE5348351BAFFD3E005EC306 /* Supporting Files */,
-				BE5174EB1BB1597400E9DAE6 /* ParseManager.h */,
-				BE5174EC1BB1597400E9DAE6 /* ParseManager.m */,
 			);
 			path = The_Redwood_Project;
 			sourceTree = "<group>";
@@ -370,7 +365,6 @@
 				BE5348671BAFFF2C005EC306 /* Comment.m in Sources */,
 				BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */,
 				BE5348611BAFFDBD005EC306 /* Blog.m in Sources */,
-				BE5174ED1BB1597400E9DAE6 /* ParseManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

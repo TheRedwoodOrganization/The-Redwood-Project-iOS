@@ -12,7 +12,6 @@
 
 @property (assign, nonatomic) NSInteger indexNumber;
 @property (assign, nonatomic) BOOL done;
-@property (strong, nonatomic) ParseManager *sessionManager;
 
 @end
 
@@ -20,18 +19,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.sessionManager = [[ParseManager alloc] init];
-    self.sessionManager.delegate = self;
-    [self.sessionManager getAllPosts];
+    [self fillArray];
     
     
 }
 
-- (void)postArrayIsReady:(NSMutableArray *)postArray{
-    self.postArray = postArray;
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
+-(void)fillArray{
+    self.postArray = [[NSMutableArray alloc]init];
+    PFQuery *query = [PFQuery queryWithClassName:@"BlogPost"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error){
+            for (PFObject *pfObject in objects) {
+                Post *post = [[Post alloc]init];
+                post.title = [pfObject objectForKey:@"postTitle"];
+                
+                NSDateFormatter *df = [[NSDateFormatter alloc] init];
+                [df setDateFormat:@"yyy-MM-dd"];
+                post.doc = [df stringFromDate:pfObject.createdAt];
+                [self.postArray addObject:post];
+                
+            };
+            [self.tableView reloadData];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,15 +62,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.sessionManager.foundPostArray count];
-    //return 3;
+    return self.postArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post" forIndexPath:indexPath];
-    Post *post = self.postArray[indexPath.row];
-    [cell createCells:post];
+    if (self.postArray.count != 0){
+        Post *post = self.postArray[indexPath.row];
+        [cell createCells:post];
+    }
+
     return cell;
 }
 
