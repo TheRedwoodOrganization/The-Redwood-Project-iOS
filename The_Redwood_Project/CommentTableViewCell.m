@@ -29,7 +29,7 @@
 
 -(void)createCells:(Comment *)comment{
     self.content.text = comment.content;
-    self.byAndWin.text = [NSString stringWithFormat:@"By %@ at %@", comment.user, comment.doc];
+    self.byAndWin.text = [NSString stringWithFormat:@"By %@ at %@", comment.user.userName, comment.doc];
 }
 
 @end

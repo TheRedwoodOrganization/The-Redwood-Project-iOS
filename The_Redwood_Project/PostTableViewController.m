@@ -84,6 +84,15 @@
 
     return cell;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    PostHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostHeader"];
+    [cell createCells:self.receivedblog];
+    return cell;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 180;
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

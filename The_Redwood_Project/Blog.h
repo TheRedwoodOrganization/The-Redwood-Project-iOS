@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BlogPoster.h"
+#import "User.h"
 
 @interface Blog : NSObject
 
-@property (strong, nonatomic) BlogPoster *blogger;
+@property (strong, nonatomic) User *user;
 @property (strong, nonatomic) NSString *parseId;
+@property (strong, nonatomic) NSString *imageUrl;
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;

@@ -11,7 +11,7 @@
 
 @interface Comment : NSObject
 
-@property (weak, nonatomic) User *user;
+@property (strong, nonatomic) User *user;
 @property (strong, nonatomic) NSString *doc;
 @property (strong, nonatomic) NSString *content;
 

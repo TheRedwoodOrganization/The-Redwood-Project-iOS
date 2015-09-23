@@ -11,6 +11,8 @@
 @interface BlogTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *by;
 
 
 @end
@@ -29,6 +31,9 @@
 
 -(void)createCells:(Blog *)blog{
     self.title.text = blog.title;
+    self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:blog.imageUrl]]];
+    self.by.text = [NSString stringWithFormat:@"By: %@", blog.user.userName];
+    
 }
 
 @end

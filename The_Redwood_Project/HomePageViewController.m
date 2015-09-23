@@ -43,12 +43,20 @@
 -(void)fillArray{
     self.blogArray = [[NSMutableArray alloc]init];
     PFQuery *query = [PFQuery queryWithClassName:@"Blog"];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             for (PFObject *pfObject in objects) {
                 Blog *blog = [[Blog alloc]init];
                 blog.title = [pfObject objectForKey:@"blogTitle"];
                 blog.parseId = pfObject.objectId;
+                blog.imageUrl = [pfObject objectForKey:@"image"];
+                
+                NSString *userId = [pfObject[@"user"]objectId];
+                PFUser *user = [PFQuery getUserObjectWithId:userId];
+                User *foundUser = [[User alloc]init];
+                foundUser.userName = [user objectForKey:@"username"];
+                blog.user = foundUser;
                 [self.blogArray addObject:blog];
                 
             };
@@ -82,7 +90,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"LogIn" sender:self];
+    [self performSegueWithIdentifier:@"Posts" sender:self];
 
 }
 
@@ -91,7 +99,7 @@
     // Pass the selected object to the new view controller.
     PostTableViewController *viewController = segue.destinationViewController;
     viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
-    
+    viewController.title = [self.blogArray[self.tableView.indexPathForSelectedRow.row]title];
 }
 
 

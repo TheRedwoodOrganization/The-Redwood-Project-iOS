@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "PostTableViewCell.h"
 #import "Blog.h"
+#import "PostHeaderTableViewCell.h"
 
 @interface PostTableViewController : UITableViewController
 

@@ -43,11 +43,18 @@
     PFObject *post = [innerquery getFirstObject];
     
     [query whereKey:@"blogPost" equalTo:post];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             for (PFObject *pfObject in objects) {
                 Comment *comm = [[Comment alloc]init];
                 comm.content = [pfObject objectForKey:@"commentText"];
+                
+                NSString *userId = [pfObject[@"user"]objectId];
+                PFUser *user = [PFQuery getUserObjectWithId:userId];
+                User *foundUser = [[User alloc]init];
+                foundUser.userName = [user objectForKey:@"username"];
+                comm.user = foundUser;
                 
                 NSDateFormatter *df = [[NSDateFormatter alloc] init];
                 [df setDateFormat:@"yyy-MM-dd"];
