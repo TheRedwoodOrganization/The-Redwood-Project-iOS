@@ -10,9 +10,12 @@
 #import <Parse/Parse.h>
 #import "Post.h"
 #import "PostTableViewCell.h"
+#import "Blog.h"
+
 @interface PostTableViewController : UITableViewController
 
 @property (strong, nonatomic) Post *thisPost;
 @property (strong, nonatomic) NSMutableArray *postArray;
+@property (strong, nonatomic) Blog *receivedblog;
 
 @end

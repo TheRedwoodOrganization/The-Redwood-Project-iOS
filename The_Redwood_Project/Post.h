@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *doc;
+@property (strong, nonatomic) NSString *parseId;
 
 
 @property (strong, nonatomic) BlogPoster *blogger;

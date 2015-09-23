@@ -12,6 +12,6 @@
 
 @interface CommentTableViewCell : UITableViewCell
 
-
+- (void) createCells:(Comment *)comment;
 
 @end

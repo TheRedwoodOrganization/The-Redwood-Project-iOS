@@ -12,6 +12,7 @@
 @interface Blog : NSObject
 
 @property (strong, nonatomic) BlogPoster *blogger;
+@property (strong, nonatomic) NSString *parseId;
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *content;

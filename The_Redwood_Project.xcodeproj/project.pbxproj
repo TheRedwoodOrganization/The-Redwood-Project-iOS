@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0D32331BB289480003EEEF /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D32321BB289480003EEEF /* PostDetailViewController.m */; };
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348781BB002C6005EC306 /* PostTableViewCell.m */; };
 		BE53487C1BB006FB005EC306 /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53487B1BB006FB005EC306 /* PostTableViewController.m */; };
 		BEBF178B1BB181AB00DE55CE /* RedwoodLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */; };
+		BEBF178E1BB18F0A00DE55CE /* BlogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBF178D1BB18F0A00DE55CE /* BlogTableViewCell.m */; };
 		D011CDECB6632091A784CE27 /* libPods-The_Redwood_Project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-The_Redwood_Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0D32311BB289480003EEEF /* PostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
+		BE0D32321BB289480003EEEF /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
 		BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5348321BAFFD3E005EC306 /* The_Redwood_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Redwood_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348361BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 		BE53487B1BB006FB005EC306 /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		BEBF17891BB181AB00DE55CE /* RedwoodLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedwoodLogInViewController.h; sourceTree = "<group>"; };
 		BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedwoodLogInViewController.m; sourceTree = "<group>"; };
+		BEBF178C1BB18F0A00DE55CE /* BlogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogTableViewCell.h; sourceTree = "<group>"; };
+		BEBF178D1BB18F0A00DE55CE /* BlogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogTableViewCell.m; sourceTree = "<group>"; };
 		FC8E578FEB40063C9F38D04A /* Pods-The_Redwood_Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +205,8 @@
 				BE5348751BB00282005EC306 /* CommentTableViewCell.m */,
 				BE5348771BB002C6005EC306 /* PostTableViewCell.h */,
 				BE5348781BB002C6005EC306 /* PostTableViewCell.m */,
+				BEBF178C1BB18F0A00DE55CE /* BlogTableViewCell.h */,
+				BEBF178D1BB18F0A00DE55CE /* BlogTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -212,6 +220,8 @@
 				BE53487B1BB006FB005EC306 /* PostTableViewController.m */,
 				BEBF17891BB181AB00DE55CE /* RedwoodLogInViewController.h */,
 				BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */,
+				BE0D32311BB289480003EEEF /* PostDetailViewController.h */,
+				BE0D32321BB289480003EEEF /* PostDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -381,6 +391,8 @@
 				BE5348641BAFFED2005EC306 /* HomePageViewController.m in Sources */,
 				BE53486D1BAFFFB2005EC306 /* BlogPoster.m in Sources */,
 				BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */,
+				BEBF178E1BB18F0A00DE55CE /* BlogTableViewCell.m in Sources */,
+				BE0D32331BB289480003EEEF /* PostDetailViewController.m in Sources */,
 				BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */,
 				BE53487C1BB006FB005EC306 /* PostTableViewController.m in Sources */,
 				BE5348731BB00066005EC306 /* Post.m in Sources */,

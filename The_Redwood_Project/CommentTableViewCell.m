@@ -8,6 +8,13 @@
 
 #import "CommentTableViewCell.h"
 
+@interface CommentTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UITextView *content;
+@property (weak, nonatomic) IBOutlet UILabel *byAndWin;
+
+@end
+
 @implementation CommentTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +25,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)createCells:(Comment *)comment{
+    self.content.text = comment.content;
+    self.byAndWin.text = [NSString stringWithFormat:@"By %@ at %@", comment.user, comment.doc];
 }
 
 @end

@@ -8,10 +8,13 @@
 
 #import "HomePageViewController.h"
 #import "RedwoodLogInViewController.h"
+#import "Blog.h"
+#import "BlogTableViewCell.h"
 
 @interface HomePageViewController ()
 
-@property (strong, nonatomic) NSMutableArray *postArray;
+@property (strong, nonatomic) NSMutableArray *blogArray;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end
 
@@ -28,17 +31,75 @@
     if (![PFUser currentUser]) { // No user logged in
         [self presentLogInScreen];
     }
+    
+    [self fillArray];
 }
+
 - (IBAction)logOut:(id)sender {
     [PFUser logOut];
     [self presentLogInScreen];
 }
 
+-(void)fillArray{
+    self.blogArray = [[NSMutableArray alloc]init];
+    PFQuery *query = [PFQuery queryWithClassName:@"Blog"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error){
+            for (PFObject *pfObject in objects) {
+                Blog *blog = [[Blog alloc]init];
+                blog.title = [pfObject objectForKey:@"blogTitle"];
+                blog.parseId = pfObject.objectId;
+                [self.blogArray addObject:blog];
+                
+            };
+            [self.tableView reloadData];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.blogArray.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BlogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Blog" forIndexPath:indexPath];
+    if (self.blogArray.count != 0){
+        Blog *blog = self.blogArray[indexPath.row];
+        [cell createCells:blog];
+    }
+    
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"LogIn" sender:self];
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    PostTableViewController *viewController = segue.destinationViewController;
+    viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
+    
+}
+
+
+
 - (void) presentLogInScreen{
     // Create the log in view controller
     PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
     [logInViewController setDelegate:self]; // Set ourselves as the delegate
-
     
     // Create the sign up view controller
     PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
@@ -127,12 +188,7 @@
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
     NSLog(@"User dismissed the signUpViewController");
 }
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    // Get the new view controller using [segue destinationViewController].
-//    // Pass the selected object to the new view controller.
-//    PostTableViewController *viewController = segue.destinationViewController;
-//    viewController.postArray = self.postArray;
-//}
+
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "PostTableViewController.h"
+#import "PostDetailViewController.h"
 
 @interface PostTableViewController ()
 
@@ -27,11 +28,19 @@
 -(void)fillArray{
     self.postArray = [[NSMutableArray alloc]init];
     PFQuery *query = [PFQuery queryWithClassName:@"BlogPost"];
+    
+    PFQuery *innerquery = [PFQuery queryWithClassName:@"Blog"];
+    [innerquery whereKey:@"objectId" equalTo:self.receivedblog.parseId];
+    PFObject *blog = [innerquery getFirstObject];
+    
+    [query whereKey:@"blog" equalTo:blog];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             for (PFObject *pfObject in objects) {
                 Post *post = [[Post alloc]init];
                 post.title = [pfObject objectForKey:@"postTitle"];
+                post.parseId = pfObject.objectId;
+                post.content = [pfObject objectForKey:@"postBody"];
                 
                 NSDateFormatter *df = [[NSDateFormatter alloc] init];
                 [df setDateFormat:@"yyy-MM-dd"];
@@ -45,7 +54,7 @@
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-    }];
+    } ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +94,7 @@
     
     UIAlertAction *reviewsAction = [UIAlertAction actionWithTitle:@"Read the Post." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        // [self performSegueWithIdentifier:@"ReviewSegue" sender:self];
+         [self performSegueWithIdentifier:@"Detail" sender:self];
     }];
     UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit the Post." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
@@ -116,6 +125,13 @@
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    PostDetailViewController *viewController = (PostDetailViewController *)segue.destinationViewController;
+    viewController.receivedPost = self.postArray[self.tableView.indexPathForSelectedRow.row];
+    viewController.title = viewController.receivedPost.title;
 }
 
 /*
@@ -162,14 +178,5 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
