@@ -16,6 +16,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+
+@property (strong, nonatomic) PFUser *ownerUser;
 
 @end
 
@@ -23,7 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self checkUser];
+    
     self.content.text = self.receivedPost.content;
+    if (![[[PFUser currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [PFUser currentUser]) {
+        NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+        [toolbarButtons removeObject:self.editButton];
+        [self.navigationItem  setRightBarButtonItems:toolbarButtons animated:YES];
+    }
     
     [self fillArray];
     
@@ -34,6 +45,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)checkUser{
+    PFQuery *curPostQuery = [PFQuery queryWithClassName:@"BlogPost"];
+    [curPostQuery whereKey:@"objectId" equalTo:self.receivedPost.parseId];
+    [curPostQuery includeKey:@"user"];
+    PFObject *curPost = [curPostQuery getFirstObject];
+    NSString *curPostUserId = [curPost[@"user"]objectId];
+    self.ownerUser = [PFQuery getUserObjectWithId:curPostUserId];
+}
+
 -(void)fillArray{
     self.commentArray = [[NSMutableArray alloc]init];
     PFQuery *query = [PFQuery queryWithClassName:@"Comment"];
@@ -51,9 +72,9 @@
                 comm.content = [pfObject objectForKey:@"commentText"];
                 
                 NSString *userId = [pfObject[@"user"]objectId];
-                PFUser *user = [PFQuery getUserObjectWithId:userId];
+                PFUser *curUser = [PFQuery getUserObjectWithId:userId];
                 User *foundUser = [[User alloc]init];
-                foundUser.userName = [user objectForKey:@"username"];
+                foundUser.userName = [curUser objectForKey:@"username"];
                 comm.user = foundUser;
                 
                 NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -62,7 +83,9 @@
                 [self.commentArray addObject:comm];
                 
             };
-            [self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
             
         } else {
             // Log details of the failure
@@ -90,6 +113,49 @@
     }
     
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Comment *comm = self.commentArray[indexPath.row];
+    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:15.0f] };
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(tableView.frame), NSIntegerMax);
+    CGRect boundingRect = [comm.content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    CGRect boundingRect2 = [comm.doc boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    
+        return boundingRect.size.height + boundingRect2.size.height;
+    
+}
+- (IBAction)editClicked:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@" ,self.receivedPost.title]
+                                                                   message:@"Options" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit this Post." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        // [self performSegueWithIdentifier:@"EditSegue" sender:self];
+    }];
+    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete this Post." style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+        
+        UIAlertController *sure = [UIAlertController alertControllerWithTitle:self.receivedPost.title message:@"Are you sure you want to delete this post?" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            // [self.sessionManager deleteBook:self.receivedBookArray[self.indexNumber]];
+        }];
+        UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
+        
+        [sure addAction:noAction];
+        [sure addAction:yesAction];
+        [self presentViewController:sure animated:YES completion:nil];
+        
+    }];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    }];
+
+    
+    [alert addAction:editAction];
+    [alert addAction:deleteAction];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*

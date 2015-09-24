@@ -11,6 +11,7 @@
 #import "PostTableViewController.h"
 #import "UserLogInViewController.h"
 #import <ParseUI/ParseUI.h>
+#import "User.h"
 
 
 @interface HomePageViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>

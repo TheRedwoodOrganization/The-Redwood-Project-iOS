@@ -213,10 +213,10 @@
 				BE5348631BAFFED2005EC306 /* HomePageViewController.m */,
 				BE53487A1BB006FB005EC306 /* PostTableViewController.h */,
 				BE53487B1BB006FB005EC306 /* PostTableViewController.m */,
-				BEBF17891BB181AB00DE55CE /* RedwoodLogInViewController.h */,
-				BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */,
 				BE0D32311BB289480003EEEF /* PostDetailViewController.h */,
 				BE0D32321BB289480003EEEF /* PostDetailViewController.m */,
+				BEBF17891BB181AB00DE55CE /* RedwoodLogInViewController.h */,
+				BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

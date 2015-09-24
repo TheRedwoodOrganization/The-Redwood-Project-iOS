@@ -48,7 +48,9 @@
                 [self.postArray addObject:post];
                 
             };
-            [self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
             
         } else {
             // Log details of the failure
@@ -96,45 +98,8 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.indexNumber = indexPath.row;
-    self.thisPost = self.postArray[self.indexNumber];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@" ,self.thisPost.title]
-                                                                   message:@"Options" preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *reviewsAction = [UIAlertAction actionWithTitle:@"Read the Post." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-         [self performSegueWithIdentifier:@"Detail" sender:self];
-    }];
-    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit the Post." style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        // [self performSegueWithIdentifier:@"EditSegue" sender:self];
-    }];
-    UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"Delete this Post." style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
-        
-        UIAlertController *sure = [UIAlertController alertControllerWithTitle:self.thisPost.title message:@"Are you sure you want to delete this post?" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-            
-            // [self.sessionManager deleteBook:self.receivedBookArray[self.indexNumber]];
-        }];
-        UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
-        
-        [sure addAction:noAction];
-        [sure addAction:yesAction];
-        [self presentViewController:sure animated:YES completion:nil];
-        
-    }];
-    
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-    }];
-    
-    [alert addAction:reviewsAction];
-    [alert addAction:editAction];
-    [alert addAction:deleteAction];
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
-    
-}
+    [self performSegueWithIdentifier:@"Detail" sender:self];
+    }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
