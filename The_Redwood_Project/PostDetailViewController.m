@@ -114,16 +114,17 @@
     
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Comment *comm = self.commentArray[indexPath.row];
-    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:15.0f] };
+    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:14.0f] };
     CGSize maxSize = CGSizeMake(CGRectGetWidth(tableView.frame), NSIntegerMax);
     CGRect boundingRect = [comm.content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
-    CGRect boundingRect2 = [comm.doc boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
-    
-        return boundingRect.size.height + boundingRect2.size.height;
-    
+ 
+    NSLog(@"%@ - %f", comm.content, boundingRect.size.height);
+    return boundingRect.size.height + 18.0f + 6.0f;
 }
+
 - (IBAction)editClicked:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%@" ,self.receivedPost.title]
                                                                    message:@"Options" preferredStyle:UIAlertControllerStyleActionSheet];

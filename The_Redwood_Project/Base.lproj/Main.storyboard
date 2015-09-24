@@ -204,25 +204,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1r-Q4-91E">
-                                                    <rect key="frame" x="8" y="28" width="552" height="63"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="0.0" y="22" width="568" height="75"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By and When" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tj7-pi-4Gs">
-                                                    <rect key="frame" x="468" y="8" width="92" height="18"/>
+                                                    <rect key="frame" x="466" y="2" width="92" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="TYG-yA-GAc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="g1r-Q4-91E" firstAttribute="leading" secondItem="yBL-jI-4Wv" secondAttribute="leadingMargin" id="0Xm-ED-zrv"/>
-                                                <constraint firstItem="tj7-pi-4Gs" firstAttribute="top" secondItem="yBL-jI-4Wv" secondAttribute="topMargin" id="490-yh-5sB"/>
-                                                <constraint firstItem="tj7-pi-4Gs" firstAttribute="trailing" secondItem="yBL-jI-4Wv" secondAttribute="trailingMargin" id="KJA-ZE-UkD"/>
-                                                <constraint firstItem="g1r-Q4-91E" firstAttribute="bottom" secondItem="yBL-jI-4Wv" secondAttribute="bottomMargin" id="OwR-3N-bSd"/>
+                                                <constraint firstItem="tj7-pi-4Gs" firstAttribute="top" secondItem="yBL-jI-4Wv" secondAttribute="top" constant="2" id="0jT-4h-Wlg"/>
+                                                <constraint firstItem="g1r-Q4-91E" firstAttribute="leading" secondItem="yBL-jI-4Wv" secondAttribute="leading" id="aCu-Kq-fPL"/>
                                                 <constraint firstItem="g1r-Q4-91E" firstAttribute="top" secondItem="tj7-pi-4Gs" secondAttribute="bottom" constant="2" id="eqQ-m5-3dO"/>
-                                                <constraint firstItem="g1r-Q4-91E" firstAttribute="trailing" secondItem="yBL-jI-4Wv" secondAttribute="trailingMargin" id="fbb-Ck-sF5"/>
+                                                <constraint firstAttribute="trailing" secondItem="g1r-Q4-91E" secondAttribute="trailing" id="pkz-Hk-etI"/>
+                                                <constraint firstAttribute="bottom" secondItem="g1r-Q4-91E" secondAttribute="bottom" constant="2" id="vhv-9M-Mfu"/>
+                                                <constraint firstAttribute="trailing" secondItem="tj7-pi-4Gs" secondAttribute="trailing" constant="10" id="xfq-ou-qmg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
