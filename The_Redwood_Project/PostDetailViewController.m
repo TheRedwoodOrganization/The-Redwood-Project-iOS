@@ -9,6 +9,7 @@
 #import "PostDetailViewController.h"
 #import "CommentTableViewCell.h"
 
+
 @interface PostDetailViewController ()
 
 
@@ -19,6 +20,10 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @property (strong, nonatomic) PFUser *ownerUser;
+
+@property (strong, nonatomic) CommentHeaderTableViewCell *chtvc;
+
+@property (strong, nonatomic) NSString *freshComment;
 
 @end
 
@@ -64,6 +69,7 @@
     PFObject *post = [innerquery getFirstObject];
     
     [query whereKey:@"blogPost" equalTo:post];
+    [query orderByDescending:@"updatedAt"];
     [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
@@ -111,9 +117,50 @@
         Comment *comm = self.commentArray[indexPath.row];
         [cell createCells:comm];
     }
+    [self.tableView setSeparatorColor:[UIColor blackColor]];
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row%2) {
+        UIColor *myColor =  [UIColor colorWithRed:(206 / 255.0) green:(235 / 255.0) blue:(245 / 255.0) alpha:1.0];
+        cell.backgroundColor = myColor;
+    }
+
+}
+
+- (void)commentIsReady:(NSString *)commentContent{
+    self.freshComment = commentContent;
+    [self addComment];
+}
+
+- (void)addComment {
+    PFObject *createdComment = [PFObject objectWithClassName:@"Comment"];
+        createdComment[@"user"] = self.currentUser;
+        createdComment[@"commentText"] = self.freshComment;
+    
+        PFQuery *innerquery = [PFQuery queryWithClassName:@"BlogPost"];
+        [innerquery whereKey:@"objectId" equalTo:self.receivedPost.parseId];
+        PFObject *post = [innerquery getFirstObject];
+        createdComment[@"blogPost"] = post;
+        [createdComment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                [self fillArray];
+            } else {
+            }
+        }];
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    CommentHeaderTableViewCell *header = [tableView dequeueReusableCellWithIdentifier:@"CommentHeader"];
+    UIColor *myColor =  [UIColor colorWithRed:(120 / 255.0) green:(191 / 255.0) blue:(214 / 255.0) alpha:1.0];
+    header.backgroundColor = myColor;
+    header.delegate = self;
+    return header;
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Comment *comm = self.commentArray[indexPath.row];
@@ -123,6 +170,10 @@
  
     NSLog(@"%@ - %f", comm.content, boundingRect.size.height);
     return boundingRect.size.height + 18.0f + 6.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 80.0f;
 }
 
 - (IBAction)editClicked:(id)sender {
@@ -139,7 +190,12 @@
         
         UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
             
-            // [self.sessionManager deleteBook:self.receivedBookArray[self.indexNumber]];
+            PFQuery *innerquery = [PFQuery queryWithClassName:@"BlogPost"];
+            [innerquery whereKey:@"objectId" equalTo:self.receivedPost.parseId];
+            PFObject *post = [innerquery getFirstObject];
+            [post deleteInBackground];
+            [self.navigationController popViewControllerAnimated:YES];
+            
         }];
         UIAlertAction* noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
         

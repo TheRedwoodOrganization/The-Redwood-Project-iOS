@@ -10,10 +10,12 @@
 #import <Parse/Parse.h>
 #import "Comment.h"
 #import "Post.h"
+#import "CommentHeaderTableViewCell.h"
 
-@interface PostDetailViewController : UIViewController
+@interface PostDetailViewController : UIViewController <CommentReadiness>
 
 @property (strong, nonatomic) NSMutableArray *commentArray;
 @property (strong, nonatomic) Post *receivedPost;
+@property (strong, nonatomic) PFUser *currentUser;
 
 @end

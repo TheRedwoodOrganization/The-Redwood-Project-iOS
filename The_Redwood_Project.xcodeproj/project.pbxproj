@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE0D32331BB289480003EEEF /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D32321BB289480003EEEF /* PostDetailViewController.m */; };
+		BE1022781BB544FB00B690DF /* PostCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1022771BB544FB00B690DF /* PostCreationViewController.m */; };
+		BE10227B1BB556D100B690DF /* CommentHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE10227A1BB556D100B690DF /* CommentHeaderTableViewCell.m */; };
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
@@ -42,6 +44,10 @@
 		BB1571F6AEF5673CB52657F5 /* libPods-The_Redwood_Project.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-The_Redwood_Project.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0D32311BB289480003EEEF /* PostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
 		BE0D32321BB289480003EEEF /* PostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
+		BE1022761BB544FB00B690DF /* PostCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCreationViewController.h; sourceTree = "<group>"; };
+		BE1022771BB544FB00B690DF /* PostCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCreationViewController.m; sourceTree = "<group>"; };
+		BE1022791BB556D100B690DF /* CommentHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentHeaderTableViewCell.h; sourceTree = "<group>"; };
+		BE10227A1BB556D100B690DF /* CommentHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentHeaderTableViewCell.m; sourceTree = "<group>"; };
 		BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5348321BAFFD3E005EC306 /* The_Redwood_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Redwood_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348361BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,6 +208,8 @@
 				BEBF178D1BB18F0A00DE55CE /* BlogTableViewCell.m */,
 				BEF0F69D1BB2DF7000958935 /* PostHeaderTableViewCell.h */,
 				BEF0F69E1BB2DF7000958935 /* PostHeaderTableViewCell.m */,
+				BE1022791BB556D100B690DF /* CommentHeaderTableViewCell.h */,
+				BE10227A1BB556D100B690DF /* CommentHeaderTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,6 +225,8 @@
 				BE0D32321BB289480003EEEF /* PostDetailViewController.m */,
 				BEBF17891BB181AB00DE55CE /* RedwoodLogInViewController.h */,
 				BEBF178A1BB181AB00DE55CE /* RedwoodLogInViewController.m */,
+				BE1022761BB544FB00B690DF /* PostCreationViewController.h */,
+				BE1022771BB544FB00B690DF /* PostCreationViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -386,6 +396,8 @@
 				BEF0F69F1BB2DF7000958935 /* PostHeaderTableViewCell.m in Sources */,
 				BE5348761BB00282005EC306 /* CommentTableViewCell.m in Sources */,
 				BEBF178E1BB18F0A00DE55CE /* BlogTableViewCell.m in Sources */,
+				BE1022781BB544FB00B690DF /* PostCreationViewController.m in Sources */,
+				BE10227B1BB556D100B690DF /* CommentHeaderTableViewCell.m in Sources */,
 				BE0D32331BB289480003EEEF /* PostDetailViewController.m in Sources */,
 				BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */,
 				BE53487C1BB006FB005EC306 /* PostTableViewController.m in Sources */,

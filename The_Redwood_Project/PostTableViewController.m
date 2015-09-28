@@ -13,6 +13,8 @@
 
 @property (assign, nonatomic) NSInteger indexNumber;
 @property (assign, nonatomic) BOOL done;
+@property (strong, nonatomic) PFUser *ownerUser;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end
 
@@ -20,10 +22,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fillArray];
+    
+    [self checkUser];
+    if (![[[PFUser currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [PFUser currentUser]) {
+        NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+        [toolbarButtons removeObject:self.addButton];
+        [self.navigationItem  setRightBarButtonItems:toolbarButtons animated:YES];
+    }
+    
+    // [self fillArray];
     
     
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [self fillArray];
+}
+
+-(void)checkUser{
+    PFQuery *curPostQuery = [PFQuery queryWithClassName:@"Blog"];
+    [curPostQuery whereKey:@"objectId" equalTo:self.receivedblog.parseId];
+    [curPostQuery includeKey:@"user"];
+    PFObject *curPost = [curPostQuery getFirstObject];
+    NSString *curPostUserId = [curPost[@"user"]objectId];
+    self.ownerUser = [PFQuery getUserObjectWithId:curPostUserId];
+}
+
 
 -(void)fillArray{
     self.postArray = [[NSMutableArray alloc]init];
@@ -34,6 +57,7 @@
     PFObject *blog = [innerquery getFirstObject];
     
     [query whereKey:@"blog" equalTo:blog];
+    [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             for (PFObject *pfObject in objects) {
@@ -102,55 +126,22 @@
     }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    PostDetailViewController *viewController = (PostDetailViewController *)segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"Detail"]){
+        PostDetailViewController *viewController = (PostDetailViewController *)segue.destinationViewController;
     viewController.receivedPost = self.postArray[self.tableView.indexPathForSelectedRow.row];
     viewController.title = viewController.receivedPost.title;
+        viewController.currentUser = self.ownerUser;
+    } else if ([segue.identifier isEqualToString:@"CreatePost"]){
+        UINavigationController* navigationController = segue.destinationViewController;
+        PostCreationViewController *viewController = (PostCreationViewController *)navigationController.topViewController;
+        viewController.creatorUser = self.ownerUser;
+        viewController.currentBlog = self.receivedblog;
+        viewController.title = @"Write a new Post";
+    }
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+-(IBAction)unwindClicked:(UIStoryboardSegue *)segue{
+    [self performSelector:@selector(fillArray) withObject:nil afterDelay: 0.1f];
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 @end

@@ -12,10 +12,11 @@
 #import "PostTableViewCell.h"
 #import "Blog.h"
 #import "PostHeaderTableViewCell.h"
+#import "PostCreationViewController.h"
 
 @interface PostTableViewController : UITableViewController
 
-@property (strong, nonatomic) Post *thisPost;
+
 @property (strong, nonatomic) NSMutableArray *postArray;
 @property (strong, nonatomic) Blog *receivedblog;
 

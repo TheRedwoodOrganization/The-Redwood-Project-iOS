@@ -46,6 +46,7 @@
     self.blogArray = [[NSMutableArray alloc]init];
     PFQuery *query = [PFQuery queryWithClassName:@"Blog"];
     [query includeKey:@"user"];
+    [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             for (PFObject *pfObject in objects) {
