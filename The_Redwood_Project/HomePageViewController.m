@@ -103,9 +103,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    PostTableViewController *viewController = segue.destinationViewController;
-    viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
-    viewController.title = [self.blogArray[self.tableView.indexPathForSelectedRow.row]title];
+    if ([segue.identifier isEqualToString:@"UserDetail"]){
+        UserDetailViewController *viewController = segue.destinationViewController;
+        viewController.currentUser = [PFUser currentUser];
+        viewController.title = @"Your Account";
+    } else {
+        PostTableViewController *viewController = segue.destinationViewController;
+        viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
+        viewController.title = [self.blogArray[self.tableView.indexPathForSelectedRow.row]title];
+    }
 }
 
 

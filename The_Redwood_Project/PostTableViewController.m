@@ -30,9 +30,21 @@
         [self.navigationItem  setRightBarButtonItems:toolbarButtons animated:YES];
     }
     
-    // [self fillArray];
+    UIButton *myBackButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [myBackButton setTitle:@"HomePage" forState:UIControlStateNormal];
+    //[myBackButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [myBackButton addTarget:self action:@selector(popToRoot:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *myCustomBackButtonItem = [[UIBarButtonItem alloc] initWithCustomView:myBackButton];
+    [self.navigationItem setLeftBarButtonItem:myCustomBackButtonItem];
     
-    
+#pragma mark1
+    // Custom Back Button is clickable and works as intended but has no Text.
+
+}
+
+- (void)popToRoot:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self fillArray];
@@ -139,7 +151,7 @@
         viewController.title = @"Write a new Post";
     }
 }
--(IBAction)unwindClicked:(UIStoryboardSegue *)segue{
+-(IBAction)unwindToPostsClicked:(UIStoryboardSegue *)segue{
     [self performSelector:@selector(fillArray) withObject:nil afterDelay: 0.1f];
 }
 

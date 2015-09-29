@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "PostTableViewController.h"
 #import "UserLogInViewController.h"
+#import "UserDetailViewController.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
 
