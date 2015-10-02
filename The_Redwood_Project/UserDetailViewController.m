@@ -38,6 +38,9 @@
     self.userName.text = [self.currentUser objectForKey:@"username"];
     self.email.text = [self.currentUser objectForKey:@"email"];
     self.profileImg.image =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self.currentUser objectForKey:@"profilePic"]]]];
+    [self.email setLineBreakMode:NSLineBreakByWordWrapping];
+    self.email.numberOfLines = 0;
+    [self.email sizeToFit];
     
     self.ownerBlog = [self findOwnerBlog];
 }

@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Home Page-->
+        <!--Home Page View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="HomePageViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" userLabel="Home Page View Controller" customClass="HomePageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -85,7 +85,7 @@
                                 <action selector="logOut:" destination="vXZ-lx-hvc" id="xOP-Yc-MS0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="pause" id="O57-b0-Vg3">
+                        <barButtonItem key="rightBarButtonItem" image="User" id="O57-b0-Vg3">
                             <connections>
                                 <segue destination="tpA-kt-Qei" kind="show" identifier="UserDetail" id="GNq-Jg-uNJ"/>
                             </connections>
@@ -127,7 +127,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="qHK-eF-Fy4" secondAttribute="bottom" constant="1" id="82E-16-BjY"/>
                                     <constraint firstAttribute="trailing" secondItem="qHK-eF-Fy4" secondAttribute="trailing" constant="1" id="aH7-Wy-ms7"/>
@@ -162,12 +162,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxP-ma-acT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="UJy-fo-Pk7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3600" y="499.5"/>
+            <point key="canvasLocation" x="3984" y="-225"/>
         </scene>
-        <!--BlogTitle-->
+        <!--Post Table View Controller-->
         <scene sceneID="Bh8-ye-HrD">
             <objects>
-                <tableViewController id="3uq-a0-gJE" customClass="PostTableViewController" sceneMemberID="viewController">
+                <tableViewController id="3uq-a0-gJE" userLabel="Post Table View Controller" customClass="PostTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="lvY-99-WL2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,7 +230,7 @@
                             <outlet property="delegate" destination="3uq-a0-gJE" id="2RN-hx-NEf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="BlogTitle" id="ubu-0n-51c">
+                    <navigationItem key="navigationItem" title="BlogTitle" id="ubu-0n-51c" userLabel="Blog Title">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6sw-We-dDx">
                             <connections>
                                 <segue destination="AEW-Ep-EJl" kind="presentation" identifier="CreatePost" id="1Hk-t2-mis"/>
@@ -244,7 +244,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRv-oi-nD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="499"/>
+            <point key="canvasLocation" x="2547" y="499"/>
         </scene>
         <!--Blog Creation View Controller-->
         <scene sceneID="WWr-rq-XMT">
@@ -289,12 +289,13 @@
                     <connections>
                         <outlet property="bannerUrl" destination="uXr-9k-rvI" id="hLt-CU-n0a"/>
                         <outlet property="blogTitle" destination="RkN-7a-wAT" id="SYP-Ns-AdJ"/>
-                        <segue destination="3uq-a0-gJE" kind="show" identifier="Your Blog" id="lkO-aX-tgo"/>
+                        <segue destination="2cm-kq-QXd" kind="unwind" identifier="unwindToHomePage" unwindAction="unwindToHomePage:" id="Yoc-bi-85N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8T-LC-su4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2cm-kq-QXd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="1936"/>
+            <point key="canvasLocation" x="3277" y="1247"/>
         </scene>
         <!--User Detail View Controller-->
         <scene sceneID="2uW-Kc-ZX5">
@@ -318,13 +319,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GES-FW-WVg">
                                 <rect key="frame" x="213" y="89" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-nS-G1h">
-                                <rect key="frame" x="213" y="141" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrS-nS-G1h">
+                                <rect key="frame" x="213" y="141" width="379" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jju-Sx-mga">
@@ -334,7 +335,6 @@
                                 </state>
                                 <connections>
                                     <action selector="goToBlog:" destination="tpA-kt-Qei" eventType="touchUpInside" id="KUs-xc-tya"/>
-                                    <segue destination="3uq-a0-gJE" kind="show" identifier="OwnBlog" id="rrO-uc-NJN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -346,6 +346,7 @@
                             <constraint firstItem="LF0-qL-l1m" firstAttribute="leading" secondItem="tbE-5a-9Pj" secondAttribute="leading" constant="8" id="6Fr-eH-Inp"/>
                             <constraint firstItem="LF0-qL-l1m" firstAttribute="top" secondItem="Abj-wa-fmQ" secondAttribute="bottom" constant="8" id="6ae-ha-U9e"/>
                             <constraint firstItem="GES-FW-WVg" firstAttribute="leading" secondItem="PrS-nS-G1h" secondAttribute="leading" id="9cD-Tp-YlF"/>
+                            <constraint firstAttribute="trailing" secondItem="PrS-nS-G1h" secondAttribute="trailing" constant="8" id="AK0-S8-APZ"/>
                             <constraint firstItem="GES-FW-WVg" firstAttribute="leading" secondItem="LF0-qL-l1m" secondAttribute="trailing" constant="30" id="bPg-8F-3Zt"/>
                             <constraint firstAttribute="centerY" secondItem="Jju-Sx-mga" secondAttribute="centerY" id="vkr-yf-m0n"/>
                         </constraints>
@@ -356,11 +357,12 @@
                         <outlet property="profileImg" destination="LF0-qL-l1m" id="QYr-WS-t2A"/>
                         <outlet property="userName" destination="GES-FW-WVg" id="cTH-GK-18T"/>
                         <segue destination="35c-pX-pVK" kind="presentation" identifier="Create Blog" id="BwZ-Fa-OUb"/>
+                        <segue destination="3uq-a0-gJE" kind="show" identifier="OwnBlog" id="F4d-3M-oYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAa-mf-ggq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="1239"/>
+            <point key="canvasLocation" x="1377" y="1247"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="wd1-1e-sSS">
@@ -493,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQq-5s-090" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2895" y="1239"/>
+            <point key="canvasLocation" x="3261" y="499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Ou-FN-5kk">
@@ -529,7 +531,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80d-Qy-tEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2788" y="499"/>
+            <point key="canvasLocation" x="3261" y="-225"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iTW-ss-zdB">
@@ -547,10 +549,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghc-Zx-FHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="1239"/>
+            <point key="canvasLocation" x="2547" y="1247"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="User" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lkO-aX-tgo"/>
+        <segue reference="WEg-Ow-P2Z"/>
     </inferredMetricsTieBreakers>
 </document>

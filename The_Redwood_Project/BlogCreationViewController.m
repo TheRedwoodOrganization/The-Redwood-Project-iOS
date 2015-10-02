@@ -57,19 +57,21 @@
         } else {
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSegueWithIdentifier:@"Your Blog" sender:self];
-
+            [self performSegueWithIdentifier:@"unwindToHomePage" sender:self];
         });
     }];
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    PostTableViewController *viewController = segue.destinationViewController;
-    viewController.receivedblog = self.freshBlog;
-    viewController.title = self.blogTitle.text;
-    [viewController.navigationItem setHidesBackButton:YES];
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.description isKindOfClass:[PostTableViewController class]]) {
+        PostTableViewController *viewController = segue.destinationViewController;
+        viewController.receivedblog = self.freshBlog;
+        viewController.title = self.blogTitle.text;
+        [viewController.navigationItem setHidesBackButton:YES];
+    }
 }
-
 
 @end
