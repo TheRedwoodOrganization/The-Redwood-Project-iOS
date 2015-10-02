@@ -63,6 +63,7 @@
     [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
+            [self.postArray removeAllObjects]; // Hij doet deze soms 2 keer door de cachepolicy, dit stop dat.
             for (PFObject *pfObject in objects) {
                 Post *post = [[Post alloc]init];
                 post.title = [pfObject objectForKey:@"postTitle"];

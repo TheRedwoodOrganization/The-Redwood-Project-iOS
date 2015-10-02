@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "CommentHeaderTableViewCell.h"
 
+
 @interface PostDetailViewController : UIViewController <CommentReadiness>
 
 @property (strong, nonatomic) NSMutableArray *commentArray;

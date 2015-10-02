@@ -447,11 +447,20 @@
                                                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgL-XU-3dJ">
+                                                    <rect key="frame" x="542" y="73" width="25" height="25"/>
+                                                    <state key="normal" image="Delete"/>
+                                                    <connections>
+                                                        <action selector="deleteButtonClicked:" destination="ItU-zg-cjU" eventType="touchUpInside" id="apD-fI-Kac"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tj7-pi-4Gs" firstAttribute="top" secondItem="yBL-jI-4Wv" secondAttribute="top" constant="2" id="0jT-4h-Wlg"/>
+                                                <constraint firstAttribute="trailing" secondItem="qgL-XU-3dJ" secondAttribute="trailing" constant="1" id="J93-J5-Esa"/>
                                                 <constraint firstItem="g1r-Q4-91E" firstAttribute="leading" secondItem="yBL-jI-4Wv" secondAttribute="leading" id="aCu-Kq-fPL"/>
                                                 <constraint firstItem="g1r-Q4-91E" firstAttribute="top" secondItem="tj7-pi-4Gs" secondAttribute="bottom" constant="2" id="eqQ-m5-3dO"/>
+                                                <constraint firstAttribute="bottom" secondItem="qgL-XU-3dJ" secondAttribute="bottom" constant="1" id="oaj-Dh-XN9"/>
                                                 <constraint firstAttribute="trailing" secondItem="g1r-Q4-91E" secondAttribute="trailing" id="pkz-Hk-etI"/>
                                                 <constraint firstAttribute="bottom" secondItem="g1r-Q4-91E" secondAttribute="bottom" constant="2" id="vhv-9M-Mfu"/>
                                                 <constraint firstAttribute="trailing" secondItem="tj7-pi-4Gs" secondAttribute="trailing" constant="10" id="xfq-ou-qmg"/>
@@ -460,6 +469,7 @@
                                         <connections>
                                             <outlet property="byAndWin" destination="tj7-pi-4Gs" id="20A-xA-hJq"/>
                                             <outlet property="content" destination="g1r-Q4-91E" id="FP1-fY-bvo"/>
+                                            <outlet property="delete" destination="qgL-XU-3dJ" id="XPI-Hg-Z0h"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -554,6 +564,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Delete" width="25" height="25"/>
         <image name="User" width="25" height="25"/>
     </resources>
 </document>

@@ -8,6 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "RedwoodLogInViewController.h"
+#import "RedwoodSignUpViewController.h"
 #import "Blog.h"
 #import "BlogTableViewCell.h"
 #import "UserManager.h"
@@ -127,11 +128,11 @@
 
 - (void) presentLogInScreen{
     // Create the log in view controller
-    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    RedwoodLogInViewController *logInViewController = [[RedwoodLogInViewController alloc] init];
     [logInViewController setDelegate:self]; // Set ourselves as the delegate
     
     // Create the sign up view controller
-    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    RedwoodSignUpViewController *signUpViewController = [[RedwoodSignUpViewController alloc] init];
     [signUpViewController setDelegate:self]; // Set ourselves as the delegate
     
     // Assign our sign up controller to be displayed from the login controller

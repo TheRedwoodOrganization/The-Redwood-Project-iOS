@@ -10,8 +10,17 @@
 #import "Comment.h"
 #import "User.h"
 
+@class CommentTableViewCell;
+
+@protocol CommentTableViewCellDelegate
+
+- (void)didDeleteCommentWithCell:(CommentTableViewCell *)cell;
+
+@end
+
 @interface CommentTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) id<CommentTableViewCellDelegate> delegate;
 - (void) createCells:(Comment *)comment;
 
 @end

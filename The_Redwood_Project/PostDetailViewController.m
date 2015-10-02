@@ -11,7 +11,7 @@
 #import "UserManager.h"
 
 
-@interface PostDetailViewController ()
+@interface PostDetailViewController () <CommentTableViewCellDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextView *content;
@@ -77,12 +77,15 @@
             for (PFObject *pfObject in objects) {
                 Comment *comm = [[Comment alloc]init];
                 comm.content = [pfObject objectForKey:@"commentText"];
+                comm.commentId = pfObject.objectId;
                 
                 NSString *userId = [pfObject[@"user"]objectId];
                 PFUser *curUser = [PFQuery getUserObjectWithId:userId];
                 User *foundUser = [[User alloc]init];
                 foundUser.userName = [curUser objectForKey:@"username"];
+                foundUser.userID = curUser.objectId;
                 comm.user = foundUser;
+                comm.pfUser = curUser;
                 
                 NSDateFormatter *df = [[NSDateFormatter alloc] init];
                 [df setDateFormat:@"yyy-MM-dd"];
@@ -114,10 +117,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Comment" forIndexPath:indexPath];
-    if (self.commentArray.count != 0){
-        Comment *comm = self.commentArray[indexPath.row];
-        [cell createCells:comm];
-    }
+    cell.delegate = self;
+    Comment *comm = self.commentArray[indexPath.row];
+    [cell createCells:comm];
     [self.tableView setSeparatorColor:[UIColor blackColor]];
     
     return cell;
@@ -127,8 +129,18 @@
     if (indexPath.row%2) {
         UIColor *myColor =  [UIColor colorWithRed:(206 / 255.0) green:(235 / 255.0) blue:(245 / 255.0) alpha:1.0];
         cell.backgroundColor = myColor;
+    } else {
+        cell.backgroundColor = [UIColor whiteColor];
     }
 
+}
+
+- (void)didDeleteCommentWithCell:(CommentTableViewCell *)cell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.commentArray removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.25f];
 }
 
 - (void)commentIsReady:(NSString *)commentContent{
