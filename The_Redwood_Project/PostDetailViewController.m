@@ -8,6 +8,7 @@
 
 #import "PostDetailViewController.h"
 #import "CommentTableViewCell.h"
+#import "UserManager.h"
 
 
 @interface PostDetailViewController ()
@@ -35,7 +36,7 @@
     [self checkUser];
     
     self.content.text = self.receivedPost.content;
-    if (![[[PFUser currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [PFUser currentUser]) {
+    if (![[[[UserManager sharedInstance] currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [[UserManager sharedInstance] currentUser]) {
         NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
         [toolbarButtons removeObject:self.editButton];
         [self.navigationItem  setRightBarButtonItems:toolbarButtons animated:YES];

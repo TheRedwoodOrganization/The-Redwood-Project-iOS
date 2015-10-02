@@ -10,6 +10,7 @@
 #import "RedwoodLogInViewController.h"
 #import "Blog.h"
 #import "BlogTableViewCell.h"
+#import "UserManager.h"
 
 @interface HomePageViewController ()
 
@@ -23,14 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (![PFUser currentUser]) { // No user logged in
+    if (![[UserManager sharedInstance] currentUser]) { // No user logged in
         [self presentLogInScreen];
     }
     
@@ -38,6 +38,7 @@
 }
 
 - (IBAction)logOut:(id)sender {
+    [[UserManager sharedInstance] setCurrentUser:nil];
     [PFUser logOut];
     [self presentLogInScreen];
 }
@@ -105,12 +106,20 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"UserDetail"]){
         UserDetailViewController *viewController = segue.destinationViewController;
-        viewController.currentUser = [PFUser currentUser];
+        viewController.currentUser = [[UserManager sharedInstance] currentUser];
         viewController.title = @"Your Account";
-    } else {
-        PostTableViewController *viewController = segue.destinationViewController;
-        viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
-        viewController.title = [self.blogArray[self.tableView.indexPathForSelectedRow.row]title];
+    } else if ([segue.identifier isEqualToString:@"Posts"]){
+        if (self.ownerBlog == nil) {
+            PostTableViewController *viewController = segue.destinationViewController;
+            viewController.receivedblog = self.blogArray[self.tableView.indexPathForSelectedRow.row];
+            viewController.title = [self.blogArray[self.tableView.indexPathForSelectedRow.row]title];
+        } else {
+            PostTableViewController *viewController = segue.destinationViewController;
+            viewController.receivedblog = self.ownerBlog;
+            viewController.title = self.ownerBlog.title;
+            self.ownerBlog = nil;
+        }
+        
     }
 }
 
@@ -154,6 +163,7 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [[UserManager sharedInstance] setCurrentUser:user];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -166,8 +176,6 @@
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 // Sent to the delegate to determine whether the sign up request should be submitted to the server.
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
@@ -196,7 +204,7 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Sent to the delegate when the sign up attempt fails.
@@ -210,8 +218,8 @@
 }
 
 
-- (IBAction)unwindToHomePage:(UIStoryboardSegue *)segue
-{
+- (IBAction)unwindToHomePage:(UIStoryboardSegue *)segue{
+    [self performSelector:@selector(performSegueWithIdentifier:sender:) withObject:@"Posts" afterDelay:0.0f];
 }
 
 @end

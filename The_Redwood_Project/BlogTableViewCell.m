@@ -36,4 +36,11 @@
     
 }
 
+- (void)prepareForReuse{
+    [super prepareForReuse];
+    self.image.image = nil;
+    self.title.text = @"";
+    self.by.text = @"";
+}
+
 @end

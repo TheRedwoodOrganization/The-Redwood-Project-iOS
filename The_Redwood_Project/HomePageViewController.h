@@ -13,10 +13,11 @@
 #import "UserDetailViewController.h"
 #import <ParseUI/ParseUI.h>
 #import "User.h"
+#import "Blog.h"
 
 
 @interface HomePageViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
-
+@property (strong, nonatomic) Blog *ownerBlog;
 
 @end

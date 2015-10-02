@@ -12,6 +12,7 @@
 		BE0D33981BB967FD0082C215 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0D33971BB967FD0082C215 /* UserDetailViewController.m */; };
 		BE1022781BB544FB00B690DF /* PostCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1022771BB544FB00B690DF /* PostCreationViewController.m */; };
 		BE10227B1BB556D100B690DF /* CommentHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE10227A1BB556D100B690DF /* CommentHeaderTableViewCell.m */; };
+		BE1755941BBE8F7B00678C12 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1755931BBE8F7B00678C12 /* UserManager.m */; };
 		BE5348381BAFFD3E005EC306 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5348371BAFFD3E005EC306 /* main.m */; };
 		BE53483B1BAFFD3E005EC306 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE53483A1BAFFD3E005EC306 /* AppDelegate.m */; };
 		BE5348411BAFFD3E005EC306 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE53483F1BAFFD3E005EC306 /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 		BE1022771BB544FB00B690DF /* PostCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCreationViewController.m; sourceTree = "<group>"; };
 		BE1022791BB556D100B690DF /* CommentHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentHeaderTableViewCell.h; sourceTree = "<group>"; };
 		BE10227A1BB556D100B690DF /* CommentHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentHeaderTableViewCell.m; sourceTree = "<group>"; };
+		BE1755921BBE8F7B00678C12 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		BE1755931BBE8F7B00678C12 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		BE39A9228AD4983C97084710 /* Pods-The_Redwood_Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The_Redwood_Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-The_Redwood_Project/Pods-The_Redwood_Project.debug.xcconfig"; sourceTree = "<group>"; };
 		BE5348321BAFFD3E005EC306 /* The_Redwood_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = The_Redwood_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5348361BAFFD3E005EC306 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,6 +141,15 @@
 			name = "Log In";
 			sourceTree = "<group>";
 		};
+		BE1755951BBE8F8500678C12 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BE1755921BBE8F7B00678C12 /* UserManager.h */,
+				BE1755931BBE8F7B00678C12 /* UserManager.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		BE5348291BAFFD3D005EC306 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +173,7 @@
 		BE5348341BAFFD3E005EC306 /* The_Redwood_Project */ = {
 			isa = PBXGroup;
 			children = (
+				BE1755951BBE8F8500678C12 /* Services */,
 				BE53485E1BAFFD88005EC306 /* Controllers */,
 				BE53485D1BAFFD7F005EC306 /* Views */,
 				BE53485C1BAFFD77005EC306 /* Models */,
@@ -433,6 +446,7 @@
 				BE5348381BAFFD3E005EC306 /* main.m in Sources */,
 				BE5348671BAFFF2C005EC306 /* Comment.m in Sources */,
 				BE5348791BB002C6005EC306 /* PostTableViewCell.m in Sources */,
+				BE1755941BBE8F7B00678C12 /* UserManager.m in Sources */,
 				BE5348611BAFFDBD005EC306 /* Blog.m in Sources */,
 				BE0D05511BBA7B6100389585 /* BlogCreationViewController.m in Sources */,
 			);

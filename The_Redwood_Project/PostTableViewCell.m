@@ -33,5 +33,10 @@
     self.doc.text = [NSString stringWithFormat:@"%@", post.doc];
     
 }
+- (void)prepareForReuse{
+    [super prepareForReuse];
+    self.title.text = @"";
+    self.doc.text = @"";
+}
 
 @end

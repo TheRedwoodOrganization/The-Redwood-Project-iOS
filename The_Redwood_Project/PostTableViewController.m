@@ -8,6 +8,7 @@
 
 #import "PostTableViewController.h"
 #import "PostDetailViewController.h"
+#import "UserManager.h"
 
 @interface PostTableViewController ()
 
@@ -24,7 +25,7 @@
     [super viewDidLoad];
     
     [self checkUser];
-    if (![[[PFUser currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [PFUser currentUser]) {
+    if (![[[[UserManager sharedInstance] currentUser] objectForKey:@"hasBlog"] boolValue] || self.ownerUser != [[UserManager sharedInstance] currentUser]) {
         NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
         [toolbarButtons removeObject:self.addButton];
         [self.navigationItem  setRightBarButtonItems:toolbarButtons animated:YES];

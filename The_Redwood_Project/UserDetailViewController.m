@@ -7,6 +7,7 @@
 //
 
 #import "UserDetailViewController.h"
+#import "HomePageViewController.h"
 
 @interface UserDetailViewController ()
 
@@ -23,7 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUp];
 }
 
@@ -48,15 +48,13 @@
 - (IBAction)goToBlog:(id)sender {
     
     if ([[self.currentUser objectForKey:@"hasBlog" ] boolValue]) {
-        [self performSegueWithIdentifier:@"OwnBlog" sender:self];
+        [self performSegueWithIdentifier:@"unwindToHomePage" sender:self];
     } else {
         [self performSegueWithIdentifier:@"Create Blog" sender:self];
     }
     
 }
--(IBAction)unwindToUserClicked:(UIStoryboardSegue *)segue{
-    
-}
+
 
 - (Blog *) findOwnerBlog{
     PFQuery *blogQuery = [PFQuery queryWithClassName:@"Blog"];
@@ -77,11 +75,9 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"OwnBlog"]) {
-        PostTableViewController *viewController = segue.destinationViewController;
-        viewController.title = self.ownerBlog.title;
-        viewController.receivedblog = self.ownerBlog;
-        //[viewController.navigationItem setHidesBackButton:YES];
+    if ([segue.identifier isEqualToString:@"unwindToHomePage"]) {
+        HomePageViewController *viewController = segue.destinationViewController;
+        viewController.ownerBlog = self.ownerBlog;
         
     } else {
         UINavigationController *navController = segue.destinationViewController;

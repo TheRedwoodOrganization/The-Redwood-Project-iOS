@@ -87,7 +87,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="User" id="O57-b0-Vg3">
                             <connections>
-                                <segue destination="tpA-kt-Qei" kind="show" identifier="UserDetail" id="GNq-Jg-uNJ"/>
+                                <segue destination="tpA-kt-Qei" kind="presentation" identifier="UserDetail" id="GNq-Jg-uNJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -356,11 +356,12 @@
                         <outlet property="email" destination="PrS-nS-G1h" id="P3P-qH-FQk"/>
                         <outlet property="profileImg" destination="LF0-qL-l1m" id="QYr-WS-t2A"/>
                         <outlet property="userName" destination="GES-FW-WVg" id="cTH-GK-18T"/>
-                        <segue destination="35c-pX-pVK" kind="presentation" identifier="Create Blog" id="BwZ-Fa-OUb"/>
-                        <segue destination="3uq-a0-gJE" kind="show" identifier="OwnBlog" id="F4d-3M-oYv"/>
+                        <segue destination="35c-pX-pVK" kind="show" identifier="Create Blog" id="BwZ-Fa-OUb"/>
+                        <segue destination="Swh-jd-t5c" kind="unwind" identifier="unwindToHomePage" unwindAction="unwindToHomePage:" id="Xoe-kN-ySt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAa-mf-ggq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Swh-jd-t5c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1377" y="1247"/>
         </scene>
@@ -555,7 +556,4 @@
     <resources>
         <image name="User" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WEg-Ow-P2Z"/>
-    </inferredMetricsTieBreakers>
 </document>
